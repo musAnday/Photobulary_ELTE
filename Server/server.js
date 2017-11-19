@@ -36,13 +36,14 @@ app.post("/processimage", (req, res) => {
     }
 
     try{
-        var valid = isValidBase64Image(image64Base)
+        isValidBase64Image(image64Base);
     }catch(e){
-            errors.push(e.message);
+        errors.push(e.message);
     }
-
+    console.log(errors);
+    
     if (errors.length != 0){
-        res.status(505)
+        res.status(400)
         res.send({
             errorMessage : errors
         })
@@ -63,7 +64,7 @@ app.post("/processimage", (req, res) => {
         res.send(matchResults(labelledResults,words));
       }).catch(function(reason) {
         // rejection
-        res.status(505)
+        res.status(400)
         res.send({
             errorMessage : reason
         })
@@ -104,13 +105,14 @@ function isValidBase64Image(dataString) {
 
     if(!dataString)
     {
-        return new Error("image64Base is required");
+        throw new Error("image64Base is required");
     }
 
     var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
-  
-    if (!matches) {
-      return new Error("image64Base is not a valid image data.");
+
+    console.log(matches)
+    if (matches === null  ) {
+        throw new Error("image64Base is not a valid image data.");
     }
 
     return true;
