@@ -36,11 +36,6 @@ app.post("/processimage", (req, res) => {
         errors.push("Words are required.");
     }
 
-    if(!image64Base)
-    {
-        errors.push("'image64Base' is required.");
-    }
-
     try{
         isValidBase64Image(image64Base);
     }catch(e){
@@ -127,7 +122,6 @@ function isValidBase64Image(dataString) {
 
     var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
 
-    console.log(matches)
     if (matches === null  ) {
         throw new Error("image64Base is not a valid image data.");
     }
