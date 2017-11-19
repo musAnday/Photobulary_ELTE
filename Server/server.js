@@ -19,6 +19,12 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 //API ENDPOINTS
 
+/**
+ * Processes the image though API and matches "words" in the game with results of image "image64Base" sent to API returns array of object.
+ * @param {string} image64Base
+ * @param {array[string]} words
+ * @return {array[Object]} result
+ */
 app.post("/processimage", (req, res) => {
 
     var errors = [];
@@ -40,11 +46,9 @@ app.post("/processimage", (req, res) => {
     }catch(e){
         errors.push(e.message);
     }
-    console.log(errors);
     
     if (errors.length != 0){
-        res.status(400)
-        res.send({
+        res.status(400).send({
             errorMessage : errors
         })
     }
@@ -64,11 +68,24 @@ app.post("/processimage", (req, res) => {
         res.send(matchResults(labelledResults,words));
       }).catch(function(reason) {
         // rejection
-        res.status(400)
-        res.send({
+        res.status(400).send({
             errorMessage : reason
         })
      });
+});
+
+/**
+ * Returns array of strings used in game
+ * @return {array[string]} words
+ */
+app.get("/getwords",(req,res) => {
+    //DUMMY RESULTS
+    res.send({
+        words : ["apple","table","tree","car","cup"]
+    });
+
+    //TODO - Words must be taken from a dictionary like database or file.
+    
 });
 
 //STARTING APP
