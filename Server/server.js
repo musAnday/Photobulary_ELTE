@@ -71,20 +71,6 @@ app.post("/processimage", (req, res) => {
 });
 
 /**
- * Returns array of strings used in game
- * @return {array[string]} words
- */
-app.get("/getwords", (req, res) => {
-    //DUMMY RESULTS
-    res.send({
-        words: ["apple", "table", "tree", "car", "cup"]
-    });
-
-    //TODO - Words must be taken from a dictionary like database or file.
-
-});
-
-/**
  * Processes the image though API using image "image64Base" returns array of definitive words. 
  * @param {string} image64Base
  * @return {array[string]} result
