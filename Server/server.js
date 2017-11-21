@@ -161,6 +161,9 @@ app.get("/getRandomWords", (req, res) => {
       for (let index = 0; index < randomWordNum; index++) {
         var indexToTake = Math.floor(Math.random() * words.length);
         console.log(indexToTake);
+        if (words.length == 0) {
+            break;
+        }
         resultsToReturn.push(words.splice(indexToTake,1)[0]);
       }
       res.send(resultsToReturn);
@@ -171,7 +174,7 @@ app.get("/getRandomWords", (req, res) => {
 
 //STARTING APP
 
-app.listen(3000);
+app.listen(3001);
 
 
 //INTERNAL OPERATIONS
