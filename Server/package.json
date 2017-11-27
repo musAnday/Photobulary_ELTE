@@ -1,0 +1,23 @@
+{
+  "name": "photobulary",
+  "version": "1.0.0",
+  "description": "Interactive Media Design and Development course Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(git://github.com/musAnday/Photobulary_ELTE.git)"
+  },
+  "author": "Musa Anday Arzu",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/datastore": "^1.1.0",
+    "@google-cloud/vision": "^0.12.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
+}

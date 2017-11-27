@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "photobulary-elte",
+  "private_key_id": "45bfdaf4b52319e5de48b69744e7e48be826e258",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCKG5CR7v9jyxlr\nrU74Equ1BuUAc8QFy9jVdWRlH4u/agod/2+077Xp9JzSMsGzn/vgpeFuDa3lobEb\nNyqxBLmbgQbHTxHU+bHhSYsoKxEO9RWK1BlNL3wIeUUTXDrllqCHB8bkxnnlWnRP\nJnS2EXQb/AsdZdQOQFK+gsIQscCtbpvX4/6OGohp5TrjdXP+32ulekYfNaeVg6WZ\nJ7IsYkv69D/nfIqDrjRepd5aBOxgRppkk8CKj6GrZblfqQAcm9Pu2nYjfSojpnk9\nqXaWJP1CI+XHnEB//N0KcOKNDTNhVckaRzWxlNe/Yh33tv2CUEN2G9E+WNKoiasK\n/nGD/jM5AgMBAAECggEACb1z7rbaUCFsw4lPfnNipLu9vtBrTLVZr4Q99lvJMVC7\nMe5n5GzbeYqE3NYzjwWDcA6C3Y4da4qBwRec7SsWI/9viPLsoQaTIv5a0BRpeZKT\nWF0pA6aLqtVSp9DjXnnHDH7h6hSNWD2O4l4l8Qk+FRMrfYFG+VJUA5eZNDA1FIYT\n9ZclMBC8Sg/CK/0lab5Ic2xmmD9JTOkT9r2nZ5C8yWMUpFDSCoz29ype288sT9XU\nNRwDwrBeFKJj6WNGacG9DPGw/OWuek1U8kFtVHNDmu7FEqOR2FRMPb36yshqO9OU\nkFszc7aXb7r930yDCeB8MzKn7Z4Aw8FMgZMt/VBGAQKBgQC9+t83QhKklphiIYt2\naCKLetzzqVq2DrX+JmuxKEDYC1aJhyAvENTwVtMUxp4ynrmrCo/j4dmDhyz8h5uz\ntLKFej9WnEFSSlpV0PXt5L4X3+b94Xdtab6esJsa/xknCJATLTG56psus0yP/2B3\nmWjBq3+IYgfzH4Gk1POekjoYWQKBgQC6Gf6IMwABW6k4QlbqQ8jUG7k8fboRh47L\n5y37oaTsOvM6kFseclmRyX58k9e1faNPHqCrqF86VWEj4GezlzQlNaUYvQh6d354\nvm6nt3YuCnvTU+LGr4wWIzYDVJ2y09pnY/VCPA/AZx3+1U/boLSoP24j2MZiQz1n\nM4MJ3HuV4QKBgCmQMzmhqPZ9RAVkFWDoU3Z0gNaGHKRr/4EE4ta1WcpqYJpiB7aE\nVjHmrPOEqKOmejRjcSuIA9B0yHDPMk9UnyH4ptbKBLh+L9lKiCNtwfDzOVQd+cTk\nN6H8PVLgsJ4Lj4nCf3iPTTggXgW6913zICoO3S33VInqQLDRLiNpFnCxAoGAJldA\np1LKh30Y6exQ98arU3e6vAmzEfV5p+yi/pqY3cpvXftrqmQoq+51Trku0cdmo+BN\nfdAcfmokrz2GX+ug5KGet/AKFSEVP08MgSU9BdNHG4zGxeRY2h66/AiszLD06CQh\n3Vl+bUdRWLUd1MPRNHCNAnmgtZHgzqhAMQHpvEECgYEAoejN/oNNYakDqMCkQbmR\n5Tg0azp8p4E+3RjYsLCfNnDPiB2S/fphCEwqTjFjoc240H91BBmSaDrIxJjtIs1C\nspOVLu4hJu2Zd9WyuD7HnNaYNKh6HvMrStXWBitI8q0ISxgwDZXHR+aLtvO91WIM\nvTRebdDuq9kaEbQxCVT7Z0Y=\n-----END PRIVATE KEY-----\n",
+  "client_email": "photobulary-elte@photobulary-elte.iam.gserviceaccount.com",
+  "client_id": "114665099473893917556",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/photobulary-elte%40photobulary-elte.iam.gserviceaccount.com"
+}
