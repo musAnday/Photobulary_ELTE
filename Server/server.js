@@ -61,6 +61,7 @@ app.post("/processimage", (req, res) => {
     requests.push(requestObj);
     vision.batchAnnotateImages({ requests: requests }).then((results) => {
         var labelledResults = results[0].responses[0].labelAnnotations;
+        insertWords(getDescriptions(labelledResults));
         res.send(matchResults(labelledResults, words));
     }).catch(function (reason) {
         // rejection
@@ -105,42 +106,6 @@ app.post("/getwordsfromimage", (req, res) => {
 
 /**
  * Processes the image though API using image "image64Base" returns array of definitive words. 
- * @param {array[string]} words
- * @return status code
- */
-app.post("/insertWords", (req, res) => {
-    var words = req.body.words;
-    if (!words) {
-        "words are required."
-    }
-    words.length
-    var count = 0;
-    
-    words.forEach(element => {
-        console.log(element)
-        const kind = 'Words';
-        const name = element;
-        const wordKey = datastore.key([kind, name]);
-        datastore.save({
-            key: wordKey,
-            data: {
-                Word : element 
-            }
-        }).then(() => {
-            count++;
-            if (count == words.length) {
-                console.log("Words are successfully inserted into dictionary");
-                res.sendStatus(200);
-            }
-        }).catch((error) => {
-            console.log(error);
-            res.sendStatus(500);
-        });
-    });
-})
-
-/**
- * Processes the image though API using image "image64Base" returns array of definitive words. 
  * @param {number} words
  * @return {array[string]} words
  */
@@ -178,6 +143,35 @@ app.listen(3001);
 
 
 //INTERNAL OPERATIONS
+
+function insertWords(words){
+    var words;
+    if (!words) {
+        "words are required."
+    }
+    words.length
+    var count = 0;
+    
+    words.forEach(element => {
+        console.log(element)
+        const kind = 'Words';
+        const name = element;
+        const wordKey = datastore.key([kind, name]);
+        datastore.save({
+            key: wordKey,
+            data: {
+                Word : element 
+            }
+        }).then(() => {
+            count++;
+            if (count == words.length) {
+                console.log("Words are successfully inserted into dictionary");
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
+    });
+}
 
 function getDescriptions(labelledResults) {
     var descriptions = [];
