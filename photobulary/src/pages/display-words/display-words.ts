@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { IonicPage, NavController, ViewController, App } from 'ionic-angular';
 import { DisplayResultsPage } from '../display-results/display-results';
+import { HttpClient } from '@angular/common/http';
 
 
 @IonicPage()
@@ -20,7 +21,7 @@ import { DisplayResultsPage } from '../display-results/display-results';
 
 export class DisplayWordsPage {
 
-  word = ["smile","face","blond"]; //sofia: this is the words array we receive from backend
+  word: any; //sofia: this is the words array we receive from backend
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
@@ -31,10 +32,11 @@ export class DisplayWordsPage {
 
   constructor(
       public navCtrl: NavController,
-       public viewCtrl: ViewController, 
-       formBuilder: FormBuilder, 
-       public camera: Camera,     
-      public appCtrl: App) {
+      public viewCtrl: ViewController, 
+      formBuilder: FormBuilder, 
+      public camera: Camera,     
+      public appCtrl: App,
+      public http: HttpClient) {
     this.form = formBuilder.group({
       profilePic: ['']/*,
       name: ['', Validators.required],
@@ -45,11 +47,18 @@ export class DisplayWordsPage {
     this.form.valueChanges.subscribe((v) => {
       this.isReadyToSave = this.form.valid;
     });
+
+    this.http.get('http://localhost:3001/getRandomWords?num_words=5')//.map(res => res.json())
+    .subscribe(data => {
+      this.word = data;
+    });
+    
   }
 
   ionViewDidLoad() {
 
   }
+  
 
   getPicture() {
     if (Camera['installed']()) {
@@ -59,6 +68,7 @@ export class DisplayWordsPage {
         targetHeight: 96
       }).then((data) => {
         this.form.patchValue({ 'profilePic': 'data:image/jpg;base64,' + data });
+
       }, (err) => {
         alert('Unable to take photo');
       })
@@ -66,13 +76,27 @@ export class DisplayWordsPage {
       this.fileInput.nativeElement.click();
     }
   }
+  
+
+  sendImgToServer(body:any){
+    console.log(body);
+    this.http
+    .post('http://localhost:3001/processimage', body)
+      .subscribe(data => {
+        console.log(data);
+    });
+  }
 
   processWebImage(event) {
     let reader = new FileReader();
     reader.onload = (readerEvent) => {
-
       let imageData = (readerEvent.target as any).result;
       this.form.patchValue({ 'profilePic': imageData });
+      let body = {
+        image64Base: imageData,
+        words: this.word
+      };
+      this.sendImgToServer(body);
     };
 
     reader.readAsDataURL(event.target.files[0]);

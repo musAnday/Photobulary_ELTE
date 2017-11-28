@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { IonicPage, NavController, ViewController } from 'ionic-angular';
 import { DisplayWordsPage } from '../display-words/display-words';
+import { HttpClient } from '@angular/common/http';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,13 @@ export class DisplayResultsPage {
 
   form: FormGroup;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
+  constructor(
+    public navCtrl: NavController, 
+    public viewCtrl: ViewController, 
+    formBuilder: FormBuilder, 
+    public camera: Camera,
+    public http: HttpClient
+  ) {
     this.form = formBuilder.group({
       profilePic: ['']/*,
       name: ['', Validators.required],
@@ -37,6 +44,8 @@ export class DisplayResultsPage {
 
   }
 
+  
+
   getPicture() {
     if (Camera['installed']()) {
       this.camera.getPicture({
@@ -52,6 +61,7 @@ export class DisplayResultsPage {
       this.fileInput.nativeElement.click();
     }
   }
+
 
   processWebImage(event) {
     let reader = new FileReader();
