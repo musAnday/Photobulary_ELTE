@@ -36,7 +36,7 @@
       </div>
       <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.profilePic.value"></div>
     </div>
-    <ion-item>Your result is:</ion-item>
+    <ion-item>In your picture there are these words out of 5:</ion-item>
     <ion-list> 
       <ion-item>
         {{word}}<!--sofia: here we display the results -->
@@ -50,5 +50,6 @@
       </ion-item>
       -->
     </ion-list>
+    <ion-item>So your score is {{ score }} / 5</ion-item>
   </form>
 </ion-content>

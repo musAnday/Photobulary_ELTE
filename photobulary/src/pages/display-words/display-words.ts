@@ -79,11 +79,13 @@ export class DisplayWordsPage {
   
 
   sendImgToServer(body:any){
+    body.image64Base = body.image64Base.split(',')[1];
     console.log(body);
     this.http
     .post('http://localhost:3001/processimage', body)
       .subscribe(data => {
         console.log(data);
+        this.gotootherpage(data);
     });
   }
 
@@ -118,14 +120,17 @@ export class DisplayWordsPage {
    * The user is done and wants to create the item, so return it
    * back to the presenter.
    */
+
   done() {
     if (!this.form.valid) { return; }
     this.gotootherpage();
   }
 
-  gotootherpage(){
+  gotootherpage(data?:any){
     //this.viewCtrl.dismiss(this.form.value);
-    this.navCtrl.push(DisplayResultsPage);
+    this.navCtrl.push(DisplayResultsPage,{
+      data: data
+    });
     //this.appCtrl.getRootNav().setRoot(DisplayResultsPage);
   }
 

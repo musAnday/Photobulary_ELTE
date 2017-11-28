@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
-import { IonicPage, NavController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
 import { DisplayWordsPage } from '../display-words/display-words';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,7 +12,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DisplayResultsPage {
 
-  word = ["90%","very good!"]; //sofia: this is the results array we receive from backend
+  public data;
+  public score:number;
+
+  public word=[]; //sofia: this is the results array we receive from backend
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
@@ -26,8 +29,10 @@ export class DisplayResultsPage {
     public viewCtrl: ViewController, 
     formBuilder: FormBuilder, 
     public camera: Camera,
-    public http: HttpClient
+    public http: HttpClient,
+    public navParams: NavParams
   ) {
+    this.data = navParams.data.data;
     this.form = formBuilder.group({
       profilePic: ['']/*,
       name: ['', Validators.required],
@@ -38,10 +43,18 @@ export class DisplayResultsPage {
     this.form.valueChanges.subscribe((v) => {
       this.isReadyToSave = this.form.valid;
     });
+    this.processPoints();
   }
 
   ionViewDidLoad() {
 
+  }
+
+  processPoints(){
+    this.score = this.data.length;
+    this.data.forEach(element => {
+      this.word.push(element.description);
+    });
   }
 
   
