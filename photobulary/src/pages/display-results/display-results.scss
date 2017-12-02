@@ -31,7 +31,7 @@ page-display-results
 
   .pa
   {
-    padding-top:6px
+    padding-top:6px;
   }
 
   .points
@@ -51,7 +51,7 @@ page-display-results
 
   ion-row
   {
-    text-align: center
+    text-align: center;
   }
 
   .words
@@ -63,6 +63,13 @@ page-display-results
 
   .tc
   {
+    margin: auto;
+  }
+
+  .uploadedimg
+  {
+    width: 130px;
+    height: 130px;
     margin: auto;
   }
 }
