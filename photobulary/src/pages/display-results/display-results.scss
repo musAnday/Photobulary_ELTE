@@ -23,20 +23,17 @@ page-display-results
       display: inline-block;
 
       background-color: #eee;
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-
+      width: 80px;
+      height: 30px;
       font-size: 12px;
-
-      ion-icon 
-      {
-        font-size: 44px;
-        margin-bottom: -10px;
-        margin-top: 10px;
-      }
     }
   }
+
+  .pa
+  {
+    padding-top:6px
+  }
+
   .points
   {
     text-align: center;
@@ -44,13 +41,28 @@ page-display-results
     color: green;
     font-weight: bold;
   }
+
   .tickcross
   {
     width: 44px;
     height: 44px;
+    vertical-align: center;
   }
+
   ion-row
   {
     text-align: center
+  }
+
+  .words
+  {
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  .tc
+  {
+    margin: auto;
   }
 }

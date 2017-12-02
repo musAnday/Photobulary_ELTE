@@ -37,16 +37,21 @@ page-display-words
       }
     }
   }
+
   .task
   {
     text-align: center;
-    font-size: 15px;
-    font-weight: normal;
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-decoration:underline;
   }
+  
   .words
   {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: normal;
+    
   }
 }

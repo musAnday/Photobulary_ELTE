@@ -40,10 +40,10 @@
       <div class="task">
         The image should contain:
       </div>
-      <ion-list>
-        <ion-item>
-          {{word}}<!--sofia: here we display the words -->
-        </ion-item>
+      <ion-list *ngFor="let w of word">
+        <ion-label class="words">
+          {{w}}
+        </ion-label>
       </ion-list>
       <!--
       <ion-item>
