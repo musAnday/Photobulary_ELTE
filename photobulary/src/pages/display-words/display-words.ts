@@ -48,7 +48,7 @@ export class DisplayWordsPage {
       this.isReadyToSave = this.form.valid;
     });
 
-    this.http.get('http://localhost:3001/getRandomWords?num_words=5')//.map(res => res.json())
+    this.http.get('http://photobulary-elte.appspot.com/getRandomWords?num_words=5')//.map(res => res.json())
     .subscribe(data => {
       this.word = data;
     });
@@ -82,7 +82,7 @@ export class DisplayWordsPage {
     body.image64Base = body.image64Base.split(',')[1];
     console.log(body);
     this.http
-    .post('http://localhost:3001/processimage', body)
+    .post('http://photobulary-elte.appspot.com/processimage', body)
       .subscribe(data => {
         console.log(data);
         this.gotootherpage(data);
