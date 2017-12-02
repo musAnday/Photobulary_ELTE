@@ -36,10 +36,26 @@
       </div>
       <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.profilePic.value"></div>
     </div>
-    <ion-list> 
-      <ion-item>
-        {{word}}<!--sofia: here we display the results -->
-      </ion-item>
+    <div class="correct">
+      <ion-row>
+        <ion-col col-6>
+          {{word}}<!--sofia: here we display the results -->
+        </ion-col>
+        <ion-col col-6>
+          <img class="tickcross" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Approve_icon.svg"/>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="incorrect">
+      <ion-row>
+        <ion-col col-6>
+          {{word}}<!--sofia: here we display the results -->
+        </ion-col>
+        <ion-col col-6>
+          <img class="tickcross" src="https://images.onlinelabels.com/images/clip-art/TzeenieWheenie/TzeenieWheenie_red_green_OK_not_OK_Icons_1.png"/>
+        </ion-col>
+      </ion-row>
+    </div>
       <!--
       <ion-item>
         <ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}" formControlName="name"></ion-input>
@@ -48,7 +64,6 @@
         <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="about"></ion-input>
       </ion-item>
       -->
-    </ion-list>
     <ion-item class="points">
       {{ score }} points
     </ion-item>
