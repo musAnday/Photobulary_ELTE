@@ -16,6 +16,8 @@ export class DisplayResultsPage {
   public score:number;
 
   public word=[]; //sofia: this is the results array we receive from backend
+  public wrongWord=[]; //sofia: this are the wrong words
+  public allWords = new Array<string>();//sofia:these are all the wrods
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
@@ -33,6 +35,7 @@ export class DisplayResultsPage {
     public navParams: NavParams
   ) {
     this.data = navParams.data.data;
+    this.allWords=navParams.data.allWords;
     this.form = formBuilder.group({
       profilePic: ['']/*,
       name: ['', Validators.required],
@@ -55,6 +58,11 @@ export class DisplayResultsPage {
     this.data.forEach(element => {
       this.word.push(element.description);
     });
+    this.allWords.forEach(element =>{
+      if (!(this.word.includes(element))){
+        this.wrongWord.push(element);
+      }  
+    })
   }
 
   

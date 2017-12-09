@@ -129,7 +129,8 @@ export class DisplayWordsPage {
   gotootherpage(data?:any){
     //this.viewCtrl.dismiss(this.form.value);
     this.navCtrl.push(DisplayResultsPage,{
-      data: data
+      data: data,
+      allWords: this.word
     });
     //this.appCtrl.getRootNav().setRoot(DisplayResultsPage);
   }
