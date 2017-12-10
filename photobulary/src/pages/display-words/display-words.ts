@@ -22,6 +22,7 @@ import { HttpClient } from '@angular/common/http';
 export class DisplayWordsPage {
 
   word: any; //sofia: this is the words array we receive from backend
+  imageData;
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
@@ -93,6 +94,7 @@ export class DisplayWordsPage {
     let reader = new FileReader();
     reader.onload = (readerEvent) => {
       let imageData = (readerEvent.target as any).result;
+      this.imageData=imageData;
       this.form.patchValue({ 'profilePic': imageData });
       let body = {
         image64Base: imageData,
@@ -130,7 +132,8 @@ export class DisplayWordsPage {
     //this.viewCtrl.dismiss(this.form.value);
     this.navCtrl.push(DisplayResultsPage,{
       data: data,
-      allWords: this.word
+      allWords: this.word,
+      img: this.imageData
     });
     //this.appCtrl.getRootNav().setRoot(DisplayResultsPage);
   }

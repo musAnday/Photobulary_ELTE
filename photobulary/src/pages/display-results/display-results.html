@@ -29,7 +29,8 @@
     <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
     <div class="uploadedimg">
       <!--**************IT MUST BE THE URL OF THE UPLOADED IMG BY THE USER*****************-->
-      <img src="https://5.imimg.com/data5/LM/DU/MY-22954806/apple-fruit-250x250.jpg"/>
+      <!--<img src="https://5.imimg.com/data5/LM/DU/MY-22954806/apple-fruit-250x250.jpg"/>-->
+      <img [attr.src]="image"/>
       <!--*********************************************************************************-->
     </div>
     <div *ngIf="word.length > 0">

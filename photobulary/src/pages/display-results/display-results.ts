@@ -19,6 +19,7 @@ export class DisplayResultsPage {
   public wrongWord=[];
   public allWords = new Array<string>();
   public uploadedIMG = '';
+  public image;
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
@@ -37,6 +38,7 @@ export class DisplayResultsPage {
   ) {
     this.data = navParams.data.data;
     this.allWords=navParams.data.allWords;
+    this.image = navParams.data.img;
     this.form = formBuilder.group({
       profilePic: ['']/*,
       name: ['', Validators.required],
