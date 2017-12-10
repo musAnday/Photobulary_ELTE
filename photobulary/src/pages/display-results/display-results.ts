@@ -15,9 +15,10 @@ export class DisplayResultsPage {
   public data;
   public score:number;
 
-  public word=[]; //sofia: this is the results array we receive from backend
-  public wrongWord=[]; //sofia: this are the wrong words
-  public allWords = new Array<string>();//sofia:these are all the wrods
+  public word=[];
+  public wrongWord=[];
+  public allWords = new Array<string>();
+  public uploadedIMG = '';
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;

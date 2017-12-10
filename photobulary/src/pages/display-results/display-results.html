@@ -32,35 +32,39 @@
       <img src="https://5.imimg.com/data5/LM/DU/MY-22954806/apple-fruit-250x250.jpg"/>
       <!--*********************************************************************************-->
     </div>
-    <hr>
-    <div class="correct">
-      <ion-row>
-        <ion-col col-6>
-          <ion-list *ngFor="let w of word">
-            <ion-label class="words">
-              {{w}}
-            </ion-label>
-          </ion-list>
-        </ion-col>
-        <ion-col col-6 class="tc">
-          <img class="tickcross" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Approve_icon.svg"/>
-        </ion-col>
-      </ion-row>
+    <div *ngIf="word.length > 0">
+      <hr>
+      <div class="correct">
+        <ion-row>
+          <ion-col col-6>
+            <ion-list *ngFor="let w of word">
+              <ion-label class="words">
+                {{w}}
+              </ion-label>
+            </ion-list>
+          </ion-col>
+          <ion-col col-6 class="tc">
+            <img class="tickcross" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Approve_icon.svg"/>
+          </ion-col>
+        </ion-row>
+      </div>
     </div>
-    <hr>
-    <div class="incorrect">
-      <ion-row>
-        <ion-col col-6>
-          <ion-list *ngFor="let w of word">
-            <ion-label class="words">
-              {{w}}<!--***********************IT MUST BE THE WORDS WHICH ARE NOT IN THE IMAGE*****************-->
-            </ion-label>
-          </ion-list>
-        </ion-col>
-        <ion-col col-6 class="tc">
-          <img class="tickcross" src="https://images.onlinelabels.com/images/clip-art/TzeenieWheenie/TzeenieWheenie_red_green_OK_not_OK_Icons_1.png"/>
-        </ion-col>
-      </ion-row>
+    <div *ngIf="wrongWord.length > 0">
+      <hr>
+      <div class="incorrect">
+        <ion-row>
+          <ion-col col-6>
+            <ion-list *ngFor="let ww of wrongWord">
+              <ion-label class="words">
+                {{ww}}
+              </ion-label>
+            </ion-list>
+          </ion-col>
+          <ion-col col-6 class="tc">
+            <img class="tickcross" src="https://images.onlinelabels.com/images/clip-art/TzeenieWheenie/TzeenieWheenie_red_green_OK_not_OK_Icons_1.png"/>
+          </ion-col>
+        </ion-row>
+      </div>
     </div>
     <hr>
       <!--
