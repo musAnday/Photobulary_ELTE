@@ -61,9 +61,20 @@ export class DisplayResultsPage {
       this.word.push(element.description);
     });
     this.allWords.forEach(element =>{
+      let found = false
+      this.word.forEach(el =>{
+        if (el==element){
+          found = true
+        }
+      })
+      if (found == false) {
+        this.wrongWord.push(element);
+      }
+      /*
       if (!(this.word.includes(element))){
         this.wrongWord.push(element);
-      }  
+      } 
+      */ 
     })
   }
 
