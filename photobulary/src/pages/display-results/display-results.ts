@@ -18,7 +18,6 @@ export class DisplayResultsPage {
   public word=[];
   public wrongWord=[];
   public allWords = new Array<string>();
-  public uploadedIMG = '';
   public image;
   @ViewChild('fileInput') fileInput;
 
